@@ -1,6 +1,6 @@
-# matlabSession-240032_28-04-2019
+# matlabSession-240032_29-04-2019
 
-## Matlab session Monday 28-04-2019
+## Matlab session Monday 29-04-2019
 
 ### P2.6 - Thermal Equation with convection (small example)
 ### P2.7 - Thermal Equation with convection (mesh version)
