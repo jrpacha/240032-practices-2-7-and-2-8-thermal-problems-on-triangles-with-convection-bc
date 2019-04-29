@@ -93,5 +93,5 @@ end
 
 tempP = alphas*u(numNodElem);
 fprintf('Point P = (%.1f,%.1f) belongs to element number: %d\n',p,pElem)
-fprintf('Number of nodes of elem %d: %d, %d %d\n',pElem,numNodElem)
+fprintf('Number of nodes of elem %d: %d, %d,%d\n',pElem,numNodElem)
 fprintf('Interpolated temperature at point P: %.4e\n',tempP) 
