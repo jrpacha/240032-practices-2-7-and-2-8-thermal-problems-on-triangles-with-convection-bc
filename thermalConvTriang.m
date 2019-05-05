@@ -1,6 +1,8 @@
 clearvars
 close all
 
+fileName='solution.xlsx';
+
 eval('CircleHolemesh01')
 
 numNodes= size(nodes,1);
@@ -45,7 +47,9 @@ for e = 1:numElem
     if (coeff(6) ~= 0)
         F(rows)= F(rows) + Fe;
     end
-end
+end %end for elements
+Kini=K; %We save a copy of the initial K and F arrays
+Fini=F; %for the post-process step 
 
 %Booundary Conditions
 fixedNodes= [indB', indC'];                %fixed Nodes (global numbering)
@@ -72,10 +76,21 @@ um = Km\Fm;
 u(freeNodes)= um;
 
 %PostProcess: Compute secondary variables and plot results
-Q = K*u - F;
+Q = Kini*u - Fini;
 titol='Temperature Distribution';
 colorScale='jet';
 plotContourSolution(nodes,elem,u,titol,colorScale);
+
+%Fancy output
+tableSol=[(1:numNodes)',nodes,u,Q];
+fprintf('%8s%9s%15s%15s%14s\n','Num.Nod','X','Y','T','Q')
+fprintf('%5d%18.7e%15.7e%15.7e%15.7e\n',tableSol')
+
+%write an Excel with the solutions
+% format long e
+% ts=table(int16(tableSol(:,1)),tableSol(:,2),tableSol(:,3),tableSol(:,4),...
+%     tableSol(:,5),'variableNames',{'NumNod','X','Y','T','Q'});
+% writetable(ts,fileName);
 
 %Exercise 1:
 %Compute the temperature for the point p=[0.5, 0.2].
@@ -92,6 +107,9 @@ for e=1:numElem
 end
 
 tempP = alphas*u(numNodElem);
+fprintf('\nExercise 1:\n')
+fprintf('\nCompute the temperature for the point p=[0.5, 0.2].\n')
+fprintf('\nSol.:\n\n')
 fprintf('Point P = (%.1f,%.1f) belongs to element number: %d\n',p,pElem)
-fprintf('Number of nodes of elem %d: %d, %d,%d\n',pElem,numNodElem)
+fprintf('Number of nodes of elem %d: %d, %d, %d\n',pElem,numNodElem)
 fprintf('Interpolated temperature at point P: %.4e\n',tempP) 

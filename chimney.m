@@ -42,9 +42,9 @@ for e=1:numElem
     if (coeff(6) ~= 0)
         F(rows)=F(rows)+Fe;
     end
-end
-Kini= K; %We save a copy of matrix K and of the vector of internal forces
-Fini= F;
+end %end for elements
+Kini= K; %We save a copy of the initial K and F arrays
+Fini= F; %for the post-process step 
 
 %Boundary conditions
 fixedNodes= [1,3];
@@ -68,13 +68,14 @@ Fm=Fm+Q(freeNodes);
 %Compute the solution
 format short e
 um=Km\Fm;
-u(freeNodes)=um;,
+u(freeNodes)=um;
 
 %Post Process
+Q=Kini*u-Fini;
 titol='Temp Distribution';
 colorScale='jet';
 plotContourSolution(nodes,elem,u,titol,colorScale)
 
 %Fancy output
-fprintf('%8s%5s%9s%9s\n','Num.Nod','X','Y','T')
-fprintf('%5d%10.4f%9.4f%12.4e\n',[(1:numNod)',nodes,u]')
+fprintf('%8s%5s%9s%10s%11s\n','Num.Nod','X','Y','T','Q')
+fprintf('%5d%10.4f%9.4f%12.4e%12.4e\n',[(1:numNod)',nodes,u,Q]')
