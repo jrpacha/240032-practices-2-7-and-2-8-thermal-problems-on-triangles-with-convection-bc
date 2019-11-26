@@ -1,4 +1,8 @@
- function [K,Q]=applyConvTriangJR(indCV,beta,Tinf,K,Q,nodes,elem)
+function [K,Q]=applyConvTriangJR(indCV,beta,Tinf,K,Q,nodes,elem)
+%
+%                Only for testing purposes
+% 
+%         DO      NOT     USE     THIS      FUNCTION
 %------------------------------------------------------------------------
 % (c) Numerical Factory 2018
 %
@@ -51,7 +55,7 @@ for e=1:numElem
                 cols = rows;
                 h = norm(nodes(rows(1,1),:)-nodes(rows(1,2),:))
                 K(rows,cols)=K(rows,cols)+h*Kaux; %stiffness convection matrix
-                Q(rows)=Q(rows)+h*Faux;         %convection vector 
+                Q(rows)=Q(rows)+h*Faux;           %convection vector 
             end
         end
 end
