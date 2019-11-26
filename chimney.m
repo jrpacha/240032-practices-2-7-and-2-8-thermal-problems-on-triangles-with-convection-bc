@@ -56,6 +56,8 @@ beta= 20;
 Tinf= 30;
 [K,Q]= applyConvTriang(convecNodes,beta,Tinf,K,Q,nodes,elem);
 
+%:[K,Q]= applyConvTriangJR(convecNodes,beta,Tinf,K,Q,nodes,elem);
+
 %------------ Essential BC
 u= zeros(numNod,1); %initialize u vector
 u(fixedNodes)=100.0;

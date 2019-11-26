@@ -59,6 +59,7 @@ freeNodes= setdiff(1:numNodes,fixedNodes); %free Nodes (global numbering)
 beta=2.0;
 Tinf=-5.0;
 indCV=indT';
+%[K,Q]=applyConvTriangJR(indCV,beta,Tinf,K,Q,nodes,elem); %<--DO NOT USE IT!
 [K,Q]=applyConvTriang(indCV,beta,Tinf,K,Q,nodes,elem);
 
 % Essential B.C.
