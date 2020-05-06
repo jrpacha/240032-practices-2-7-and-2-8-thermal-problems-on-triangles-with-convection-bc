@@ -34,7 +34,7 @@ alpha3=Psi3(point(1,1),point(1,2));
 
 alphas=[alpha1,alpha2,alpha3];
 
-if (min(alphas) < 0) %at least one of the alphas is negative
+if (min(alphas) < -1.0e-10) %at least one of the alphas is negative
     isInside=0;
 end
 
