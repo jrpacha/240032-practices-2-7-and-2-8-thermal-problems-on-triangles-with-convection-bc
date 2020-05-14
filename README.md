@@ -1,7 +1,5 @@
 # 240032 Practices 2.6 and 2.7
 
-## Matlab session Tuesday 26-11-2019
-
 ### P2.6 - Thermal Equation with convection (small example)
 ### P2.7 - Thermal Equation with convection (mesh version)
 
