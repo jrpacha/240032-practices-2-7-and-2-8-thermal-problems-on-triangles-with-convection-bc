@@ -8,6 +8,9 @@ at Toni Susin's 'Numerical Factory',
 
 https://numfactory.upc.edu/web/FiniteElements.html
 
+**Important Remark:** the function **applyConvTriangJR.m** is only for 
+testing purposes. **Do not use it**. 
+
 **Disclaimer:** this stuff is provided 'as is'. Please, check it (if you
 find it useful), but try to write the programs on your own. In any case, using 
 the content of this repository is under your responsibility.
