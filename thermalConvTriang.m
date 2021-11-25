@@ -9,7 +9,7 @@ numNodes= size(nodes,1);
 numElem= size(elem,1);
 
 numbering= 0; %= 1 shows nodes and element numbering
-plotElements(nodes,elem,numbering)
+plotElementsOld(nodes,elem,numbering)
 
 %Select Boundary points
 indT= find(nodes(:,2) > 0.99); %indices of the nodes at the top boundary
@@ -58,7 +58,7 @@ freeNodes= setdiff(1:numNodes,fixedNodes); %free Nodes (global numbering)
 %------------- Convetion BC
 beta=2.0;
 Tinf=-5.0;
-indCV=indT';
+indCV=indT;
 %[K,Q]=applyConvTriangJR(indCV,beta,Tinf,K,Q,nodes,elem); %<--DO NOT USE IT!
 [K,Q]=applyConvTriang(indCV,beta,Tinf,K,Q,nodes,elem);
 

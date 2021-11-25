@@ -16,7 +16,7 @@ elem=[4,3,1;
 numNod= size(nodes,1);
 numElem= size(elem,1);
 numbering= 1; %=1 shows the numbers for nodes and elements
-plotElements(nodes,elem,numbering);
+plotElementsOld(nodes,elem,numbering);
 
 %Define Coefficients vector of the model equation
 a11=1;

@@ -33,7 +33,7 @@
 %
 %------------------------------------------------------------------------
 numElem=size(elem,1); 
-numCov=size(indCV,2);
+numCov=length(indCV);
 if numCov==1 
 	error('applyConvTriang: Not unic node allow'); 
 end
@@ -82,3 +82,4 @@ for k=1:numElem
 end
 K(indCV,indCV)=K(indCV,indCV)+Kc;
 Q(indCV)=Q(indCV)+Qc;
+
