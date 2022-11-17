@@ -4,9 +4,8 @@
 ### P2.8 - Thermal Equation with convection (mesh version)
 
 You can find the session's guide ---together with other extra material files---,
-at Toni Susin's 'Numerical Factory', 
-
-https://numfactory.upc.edu/web/FiniteElements.html
+at professor Antonio Susin's [Numerical
+Factory](https://numfactory.upc.edu/numfactory/subjects/?subject=FEM&version=etseib&lang=en&section=2&subsection=P)
 
 **Important Remark:** the function **applyConvTriangJR.m** is only for 
 testing purposes. **Do not use it**. 

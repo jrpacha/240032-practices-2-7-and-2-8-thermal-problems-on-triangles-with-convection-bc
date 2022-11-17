@@ -4,7 +4,7 @@ function [K,Q]=applyConvTriangJR(indCV,beta,Tinf,K,Q,nodes,elem)
 % 
 %         DO      NOT     USE     THIS      FUNCTION
 %------------------------------------------------------------------------
-% (c) Numerical Factory 2018
+% (c) Numerical Factory 2018 Prof. Antonio Susín
 %
 % Apply a convection BC on a boundary of a triangulated domain. 
 %
@@ -37,7 +37,7 @@ function [K,Q]=applyConvTriangJR(indCV,beta,Tinf,K,Q,nodes,elem)
 %
 %------------------------------------------------------------------------
 numElem=size(elem,1); 
-numCov=size(indCV,2);
+numCov=length(indCV);
 if numCov==1 
 	error('applyConvTriang: Not unic node allow'); 
 end
@@ -53,7 +53,7 @@ for e=1:numElem
                 error('Error: no corners allowed!')
             else
                 cols = rows;
-                h = norm(nodes(rows(1,1),:)-nodes(rows(1,2),:))
+                h = norm(nodes(rows(1,1),:)-nodes(rows(1,2),:));
                 K(rows,cols)=K(rows,cols)+h*Kaux; %stiffness convection matrix
                 Q(rows)=Q(rows)+h*Faux;           %convection vector 
             end
